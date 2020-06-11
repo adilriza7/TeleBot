@@ -1,12 +1,13 @@
 """QuotLy: Avaible commands: .qbot
 """
 import datetime
+import asyncio
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from uniborg.util import admin_cmd
+from userbot.utils import admin_cmd
 
-@borg.on(admin_cmd(pattern="qbot ?(.*)"))
+@borg.on(admin_cmd(pattern="qbot ?(.*)",outgoing=True))
 async def _(event):
     if event.fwd_from:
         return 
